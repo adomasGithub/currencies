@@ -1,0 +1,1 @@
+Scala version >= 2.12.x

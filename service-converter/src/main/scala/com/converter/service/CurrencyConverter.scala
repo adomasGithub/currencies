@@ -2,7 +2,6 @@ package com.converter.service
 
 import com.converter.service.model.Model.{CurrencyCode, CurrencyPair, CurrencyRate}
 
-import scala.math.BigDecimal.RoundingMode
 import scala.util.{Failure, Success, Try}
 
 class CurrencyConverter(
