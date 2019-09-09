@@ -96,7 +96,7 @@ class CurrencyConverterSuite extends FunSuite {
     }
 
     val Success(convertedToBeginAmount) = currencyConverter.convert(finalAmount, baseCurrencies.keySet.last, baseCurrencies.keySet.head)
-    assert(beginAmount === convertedToBeginAmount.setScale(18, RoundingMode.HALF_EVEN))
+    assert(beginAmount === convertedToBeginAmount.setScale(RoundingScale, RoundingMode.HALF_EVEN))
   }
 
   test("iterate 100000 convertions for all currency codes") {
@@ -112,7 +112,7 @@ class CurrencyConverterSuite extends FunSuite {
         toCurrencyCodes.foreach { toCurrencyCode =>
           val Success(convertedAmount) = currencyConverter.convert(amount, currencyCode, toCurrencyCode)
           val Success(convertedBackAmount) = currencyConverter.convert(convertedAmount, toCurrencyCode, currencyCode)
-          assert(amount === convertedBackAmount.setScale(18, RoundingMode.HALF_EVEN))
+          assert(amount === convertedBackAmount.setScale(RoundingScale, RoundingMode.HALF_EVEN))
         }
       }
     }

@@ -8,10 +8,9 @@ object Service extends App {
   val RoundingScale = 18
   val currencyConverter = new CurrencyConverter(CurrencyBuilder.build(CurrencyReader.read("currencies.csv")))
 
-  val scanner = new java.util.Scanner(System.in)
   while (true) {
     print("Enter conversion amount: ")
-    val amount = scanner.nextBigDecimal()
+    val amount = scala.io.StdIn.readDouble()
     print("Enter from Currency code: ")
     val fromCurrencyCode = scala.io.StdIn.readLine()
     print("Enter to Currency code: ")
